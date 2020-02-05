@@ -7,11 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="640d7e65-aba5-4a1d-a1a4-5ee7797d51cb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/slot_calc_jar/slot_calc.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/slot_calc_jar/slot_calc.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/slot_calc/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/slot_calc/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/slot_calc_jar/slot_calc.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,12 +92,20 @@
       <option name="project" value="LOCAL" />
       <updated>1580454092842</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="獲得金額と投資額を表示するように&#10;秒給 分給 時給を追加&#10;当選まで掛かる秒数 分数 時間を追加&#10;全体的に早くなったような気がしたりしなかったり">
+      <created>1580897466868</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1580897466868</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="最初から完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="最初から完成" />
+    <MESSAGE value="獲得金額と投資額を表示するように&#10;秒給 分給 時給を追加&#10;当選まで掛かる秒数 分数 時間を追加&#10;全体的に早くなったような気がしたりしなかったり" />
+    <option name="LAST_COMMIT_MESSAGE" value="獲得金額と投資額を表示するように&#10;秒給 分給 時給を追加&#10;当選まで掛かる秒数 分数 時間を追加&#10;全体的に早くなったような気がしたりしなかったり" />
   </component>
   <component name="WindowStateProjectService">
     <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580888659375">
@@ -111,33 +116,35 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="457" y="241" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1440.900@0.0.1440.900" timestamp="1580450371983" />
-    <state x="344" y="34" key="CommitChangelistDialog2" timestamp="1580454092542">
-      <screen x="0" y="23" width="1440" height="821" />
+    <state x="344" y="12" key="CommitChangelistDialog2" timestamp="1580897466587">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="344" y="12" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1580897466587" />
     <state x="344" y="34" key="CommitChangelistDialog2/0.23.1440.821@0.23.1440.821" timestamp="1580454092542" />
-    <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1580896939389">
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1580898022440">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1580896939389" />
-    <state width="1398" height="245" key="GridCell.Tab.0.center" timestamp="1580896939388">
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1580898022440" />
+    <state width="1398" height="245" key="GridCell.Tab.0.center" timestamp="1580898022439">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1580896939388" />
-    <state width="1398" height="245" key="GridCell.Tab.0.left" timestamp="1580896939388">
+    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1580898022439" />
+    <state width="1398" height="245" key="GridCell.Tab.0.left" timestamp="1580898022439">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1580896939388" />
-    <state width="1398" height="245" key="GridCell.Tab.0.right" timestamp="1580896939389">
+    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1580898022439" />
+    <state width="1398" height="245" key="GridCell.Tab.0.right" timestamp="1580898022440">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1580896939389" />
+    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1580898022440" />
     <state x="208" y="23" width="1024" height="817" key="SettingsEditor" timestamp="1580451637303">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="208" y="23" width="1024" height="817" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1580451637303" />
-    <state x="320" y="171" key="Vcs.Push.Dialog.v2" timestamp="1580454109887">
-      <screen x="0" y="23" width="1440" height="821" />
+    <state x="320" y="162" key="Vcs.Push.Dialog.v2" timestamp="1580897469366">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="320" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1580897469366" />
     <state x="320" y="171" key="Vcs.Push.Dialog.v2/0.23.1440.821@0.23.1440.821" timestamp="1580454109887" />
     <state x="397" y="265" key="com.intellij.ide.util.TipDialog" timestamp="1580887840306">
       <screen x="0" y="23" width="1440" height="821" />
