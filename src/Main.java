@@ -65,14 +65,15 @@ public class Main {
             reduction_Rate *= 100.0; //％表記にするため100倍に
 
             System.out.println(number_Of_Times_Calc + "回転で当選した場合");
-            System.out.println("還元率は " + reduction_Rate + " ％です");
-            System.out.println("獲得金額は " + stock_Calc + " 円で、投資額は " + bet_Calc + " 円です");
-            System.out.println("秒給は " + secondly_Pay_Calc + " 円です");
-            System.out.println("分給は " + minutely_Pay_Calc + " 円です");
-            System.out.println("時給は " + hourly_Pay_Calc + " 円です");
-            System.out.println("掛かる秒数は " + seconds_Time_Calc + " 秒です");
-            System.out.println("掛かる分数は " + minutes_Time_Calc + " 分で、");
-            System.out.println("掛かる時間は " + hours_Time_Calc + " 時間です");
+            System.out.println("還元率は " + reduction_Rate + " ％");
+            System.out.println("獲得金額は " + stock_Calc + " 円");
+            System.out.println("投資額は " + bet_Calc + " 円");
+            System.out.println("秒給は " + secondly_Pay_Calc + " 円");
+            System.out.println("分給は " + minutely_Pay_Calc + " 円");
+            System.out.println("時給は " + hourly_Pay_Calc + " 円");
+            System.out.println("掛かる秒数は " + seconds_Time_Calc + " 秒");
+            System.out.println("掛かる分数は " + minutes_Time_Calc + " 分");
+            System.out.println("掛かる時間は " + hours_Time_Calc + " 時間");
             System.out.println("");
         }
     }
