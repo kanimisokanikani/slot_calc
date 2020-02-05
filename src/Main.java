@@ -57,7 +57,7 @@ public class Main {
             minutes_Time_Calc = seconds_Time_Calc / 60 ; //かかった時間(分)を制作 かかった秒数 ÷ 60
             hours_Time_Calc = minutes_Time_Calc / 60 ; //かかった時間(時間)を制作 かかった秒数 ÷ 60
 
-            secondly_Pay_Calc = stock_Calc / seconds_Time_Calc; //秒給を計算
+            secondly_Pay_Calc = (stock_Calc - bet_Calc) / seconds_Time_Calc; //秒給を計算
             minutely_Pay_Calc = secondly_Pay_Calc * 60; //分給を計算
             hourly_Pay_Calc = minutely_Pay_Calc * 60; //時給を計算
 
