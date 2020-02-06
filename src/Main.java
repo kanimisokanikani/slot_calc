@@ -1,17 +1,14 @@
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.concurrent.TimeUnit;
+import java.io.*;
+import java.util.Scanner;
 
 public class Main {
-    public static void main (String [] args) throws IOException, InterruptedException {
+    public static void main (String [] args) {
 
         /////////////
         // 変数作成 //
         /////////////
 
-        String slot_Name;
+        String slot_Name;      //スロットの名前
         long default_Stock;    //初期ストック
         long add_Stock;        //一回転で増えるストック
         long bet;              //一回の金額
@@ -38,7 +35,7 @@ public class Main {
         System.out.println("スロット名を入力してください");
 
         while (true) {
-            slot_Name = new java.util.Scanner(System.in).nextLine();
+            slot_Name = new Scanner(System.in).nextLine();
             if (slot_Name.equals("")) { //何も入力されていない場合ループ
                 continue;
             }
@@ -46,39 +43,48 @@ public class Main {
         }
 
         System.out.println("初期ストックを入力してください");
-        default_Stock = new java.util.Scanner(System.in).nextLong();
+        default_Stock = new Scanner(System.in).nextLong();
 
         System.out.println("一回転で増えるストックを入力してください");
-        add_Stock = new java.util.Scanner(System.in).nextLong();
+        add_Stock = new Scanner(System.in).nextLong();
 
         System.out.println("一回の金額を入力してください");
-        bet = new java.util.Scanner(System.in).nextLong();
+        bet = new Scanner(System.in).nextLong();
 
         System.out.println("一回転の時間を少数で入力してください (1秒の場合は1.0)");
-        time = new java.util.Scanner(System.in).nextDouble();
+        time = new Scanner(System.in).nextDouble();
 
         System.out.println("回す回数を入力してください");
-        number_Of_Times = new java.util.Scanner(System.in).nextLong();
+        number_Of_Times = new Scanner(System.in).nextLong();
 
 
         ///////////////////
         // txtファイル生成 //
         ///////////////////
 
-        FileWriter slot_Setting = new FileWriter(slot_Name); //スロット名のファイルを制作
+        try { //例外が起きたときに、エラー文を出す処理
+            FileWriter slot_Setting = new FileWriter(slot_Name + ".txt"); //スロット名のファイルを制作
 
-        PrintWriter slot_Setting_Writer = new PrintWriter(new BufferedWriter(slot_Setting)); //ファイル書き込みオブジェクトを生成
+            PrintWriter slot_Setting_Writer = new PrintWriter(new BufferedWriter(slot_Setting)); //ファイル書き込みオブジェクトを生成
 
-        slot_Setting_Writer.println("スロット名 " + slot_Name);
-        slot_Setting_Writer.println("初期ストック " + default_Stock + " 円");
-        slot_Setting_Writer.println("追加ストック " + add_Stock + " 円");
-        slot_Setting_Writer.println("一回転の金額 " + bet + " 円");
-        slot_Setting_Writer.println("一回転の時間 " + time + " 秒");
-        slot_Setting_Writer.println("回転数 " + time + " 回");
-        slot_Setting_Writer.println("");
-        slot_Setting_Writer.println("");
-        slot_Setting_Writer.println("");
-        slot_Setting_Writer.close();
+            slot_Setting_Writer.println("スロット名 " + slot_Name);
+            slot_Setting_Writer.println("初期ストック " + default_Stock + " 円");
+            slot_Setting_Writer.println("追加ストック " + add_Stock + " 円");
+            slot_Setting_Writer.println("一回転の金額 " + bet + " 円");
+            slot_Setting_Writer.println("一回転の時間 " + time + " 秒");
+            slot_Setting_Writer.println("回転数 " + time + " 回");
+            slot_Setting_Writer.println("");
+            slot_Setting_Writer.println("確率をすぐ見つけたいときは、");
+            slot_Setting_Writer.println("Control or CTRL + F か command + F で");
+            slot_Setting_Writer.println("1/60 のように分数を検索してみてください");
+            slot_Setting_Writer.println("");
+            slot_Setting_Writer.println("");
+            slot_Setting_Writer.println("");
+
+            slot_Setting_Writer.close(); //書き込み終了処理
+        } catch (IOException e) {
+            System.out.println(e);
+        }
 
 
         //////////
@@ -112,27 +118,33 @@ public class Main {
             // 保存職人の仕事場
             ///////////////////
 
-            FileWriter slot_Result = new FileWriter(slot_Name,true);
+            try {
+                FileWriter slot_Result = new FileWriter(slot_Name + ".txt",true);
 
-            PrintWriter slot_Result_Writer = new PrintWriter(new BufferedWriter(slot_Result));
+                PrintWriter slot_Result_Writer = new PrintWriter(new BufferedWriter(slot_Result));
 
-            slot_Result_Writer.println(number_Of_Times_Calc + "回転で当選した場合");
-            slot_Result_Writer.println("還元率は " + reduction_Rate + " ％");
-            slot_Result_Writer.println("獲得金額は " + stock_Calc + " 円");
-            slot_Result_Writer.println("投資額は " + bet_Calc + " 円");
-            slot_Result_Writer.println("秒給は " + secondly_Pay_Calc + " 円");
-            slot_Result_Writer.println("分給は " + minutely_Pay_Calc + " 円");
-            slot_Result_Writer.println("時給は " + hourly_Pay_Calc + " 円");
-            slot_Result_Writer.println("掛かる秒数は " + seconds_Time_Calc + " 秒");
-            slot_Result_Writer.println("掛かる分数は " + minutes_Time_Calc + " 分");
-            slot_Result_Writer.println("掛かる時間は " + hours_Time_Calc + " 時間");
-            slot_Result_Writer.println("");
-            slot_Result_Writer.close();
+                slot_Result_Writer.println("");
+                slot_Result_Writer.println("検索用");
+                slot_Result_Writer.println("1/" + number_Of_Times_Calc);
+                slot_Result_Writer.println("");
+                slot_Result_Writer.println(number_Of_Times_Calc + "回転で当選した場合");
+                slot_Result_Writer.println("還元率は " + reduction_Rate + " ％");
+                slot_Result_Writer.println("獲得金額は " + stock_Calc + " 円");
+                slot_Result_Writer.println("投資額は " + bet_Calc + " 円");
+                slot_Result_Writer.println("秒給は " + secondly_Pay_Calc + " 円");
+                slot_Result_Writer.println("分給は " + minutely_Pay_Calc + " 円");
+                slot_Result_Writer.println("時給は " + hourly_Pay_Calc + " 円");
+                slot_Result_Writer.println("掛かる秒数は " + seconds_Time_Calc + " 秒");
+                slot_Result_Writer.println("掛かる分数は " + minutes_Time_Calc + " 分");
+                slot_Result_Writer.println("掛かる時間は " + hours_Time_Calc + " 時間");
+                slot_Result_Writer.println("");
+
+                slot_Result_Writer.close();
+            } catch (IOException e) {
+                System.out.println(e);
+            }
         }
         System.out.println("結果を全てファイルに保存しました");
-        TimeUnit.MILLISECONDS.sleep(2000);
         System.out.println("プログラムを終了します...");
-        TimeUnit.MILLISECONDS.sleep(2000);
-        System.exit(0);
     }
 }
