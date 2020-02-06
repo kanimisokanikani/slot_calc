@@ -6,8 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="640d7e65-aba5-4a1d-a1a4-5ee7797d51cb" name="Default Changelist" comment="">
+    <list default="true" id="640d7e65-aba5-4a1d-a1a4-5ee7797d51cb" name="Default Changelist" comment="時給の計算方法がにちゃにちゃだったので&#10;べとべとにしておいた">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/slot_calc/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/slot_calc/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -113,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580898208785</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="時給の計算方法がにちゃにちゃだったので&#10;べとべとにしておいた">
+      <created>1580899963805</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1580899963805</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -121,7 +129,8 @@
     <MESSAGE value="獲得金額と投資額を表示するように&#10;秒給 分給 時給を追加&#10;当選まで掛かる秒数 分数 時間を追加&#10;全体的に早くなったような気がしたりしなかったり" />
     <MESSAGE value="単位がおかしいのと、データを見やすく調整した" />
     <MESSAGE value="再度修正" />
-    <option name="LAST_COMMIT_MESSAGE" value="再度修正" />
+    <MESSAGE value="時給の計算方法がにちゃにちゃだったので&#10;べとべとにしておいた" />
+    <option name="LAST_COMMIT_MESSAGE" value="時給の計算方法がにちゃにちゃだったので&#10;べとべとにしておいた" />
   </component>
   <component name="WindowStateProjectService">
     <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580888659375">
@@ -132,35 +141,47 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="457" y="241" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1440.900@0.0.1440.900" timestamp="1580450371983" />
-    <state x="344" y="12" key="CommitChangelistDialog2" timestamp="1580899843973">
+    <state x="344" y="12" key="CommitChangelistDialog2" timestamp="1580908965316">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="344" y="12" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1580899843973" />
+    <state x="344" y="12" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1580908965316" />
     <state x="344" y="34" key="CommitChangelistDialog2/0.23.1440.821@0.23.1440.821" timestamp="1580454092542" />
-    <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1580899846199">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="212" key="GridCell.Tab.0.bottom" timestamp="1580978662539">
+      <screen x="0" y="23" width="1440" height="817" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1580899846199" />
-    <state width="1398" height="245" key="GridCell.Tab.0.center" timestamp="1580899846198">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1580909165921" />
+    <state width="1398" height="212" key="GridCell.Tab.0.bottom/0.23.1440.817@0.23.1440.817" timestamp="1580978662539" />
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.23.1440.823@0.23.1440.823" timestamp="1580909173583" />
+    <state width="1398" height="212" key="GridCell.Tab.0.bottom/0.23.1440.825@0.23.1440.825" timestamp="1580978386491" />
+    <state width="1398" height="212" key="GridCell.Tab.0.center" timestamp="1580978662538">
+      <screen x="0" y="23" width="1440" height="817" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1580899846198" />
-    <state width="1398" height="245" key="GridCell.Tab.0.left" timestamp="1580899846198">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1580909165919" />
+    <state width="1398" height="212" key="GridCell.Tab.0.center/0.23.1440.817@0.23.1440.817" timestamp="1580978662538" />
+    <state width="1398" height="245" key="GridCell.Tab.0.center/0.23.1440.823@0.23.1440.823" timestamp="1580909173582" />
+    <state width="1398" height="212" key="GridCell.Tab.0.center/0.23.1440.825@0.23.1440.825" timestamp="1580978386490" />
+    <state width="1398" height="212" key="GridCell.Tab.0.left" timestamp="1580978662538">
+      <screen x="0" y="23" width="1440" height="817" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1580899846198" />
-    <state width="1398" height="245" key="GridCell.Tab.0.right" timestamp="1580899846199">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1580909165916" />
+    <state width="1398" height="212" key="GridCell.Tab.0.left/0.23.1440.817@0.23.1440.817" timestamp="1580978662538" />
+    <state width="1398" height="245" key="GridCell.Tab.0.left/0.23.1440.823@0.23.1440.823" timestamp="1580909173582" />
+    <state width="1398" height="212" key="GridCell.Tab.0.left/0.23.1440.825@0.23.1440.825" timestamp="1580978386490" />
+    <state width="1398" height="212" key="GridCell.Tab.0.right" timestamp="1580978662539">
+      <screen x="0" y="23" width="1440" height="817" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1580899846199" />
+    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1580909165920" />
+    <state width="1398" height="212" key="GridCell.Tab.0.right/0.23.1440.817@0.23.1440.817" timestamp="1580978662539" />
+    <state width="1398" height="245" key="GridCell.Tab.0.right/0.23.1440.823@0.23.1440.823" timestamp="1580909173582" />
+    <state width="1398" height="212" key="GridCell.Tab.0.right/0.23.1440.825@0.23.1440.825" timestamp="1580978386490" />
     <state x="208" y="23" width="1024" height="817" key="SettingsEditor" timestamp="1580451637303">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="208" y="23" width="1024" height="817" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1580451637303" />
-    <state x="320" y="162" key="Vcs.Push.Dialog.v2" timestamp="1580898210502">
+    <state x="320" y="162" key="Vcs.Push.Dialog.v2" timestamp="1580899964946">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1580898210502" />
+    <state x="320" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1580899964946" />
     <state x="320" y="171" key="Vcs.Push.Dialog.v2/0.23.1440.821@0.23.1440.821" timestamp="1580454109887" />
     <state x="397" y="265" key="com.intellij.ide.util.TipDialog" timestamp="1580887840306">
       <screen x="0" y="23" width="1440" height="821" />
@@ -168,5 +189,9 @@
     <state x="397" y="265" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1580440373265" />
     <state x="397" y="264" key="com.intellij.ide.util.TipDialog/0.23.1440.817@0.23.1440.817" timestamp="1580402473526" />
     <state x="397" y="265" key="com.intellij.ide.util.TipDialog/0.23.1440.821@0.23.1440.821" timestamp="1580887840306" />
+    <state x="385" y="196" key="search.everywhere.popup" timestamp="1580902759328">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1580902759328" />
   </component>
 </project>
