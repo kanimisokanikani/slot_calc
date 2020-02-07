@@ -4,10 +4,10 @@
 スロットの初期ストックなどを入力するだけで還元率や時給、<br/>
 当選まで掛かる時間などがtxtファイルとして出力されます。<br/>
 ## このプログラムの使い方
-slot_calc.zipをダウンロードしてください。<br/>
+slot_calc_ver1.0.zipをダウンロードしてください。<br/>
 解凍したのち、<br/>
-windows の人は **calc_start_windows.dat** をダブルクリックして下さい。<br/>
-Mac の人は **calc_start_mac.command** をダブルクリックして下さい。<br/>
+windows の人は **calc_start_ver1.0_windows.dat** をダブルクリックして下さい。<br/>
+Mac の人は **calc_start_ver1.0_mac.command** をダブルクリックして下さい。<br/>
 ```
 スロット名
 初期ストック
