@@ -22,9 +22,11 @@ public class Main {
         double seconds_Time_Calc;       //当選までの時間 (秒)
         double minutes_Time_Calc;       //当選までの時間 (分)
         double hours_Time_Calc;         //当選までの時間 (時間)
+        double days_Time_Calc;          //当選までの時間 (日)
         double secondly_Pay_Calc;       //秒給
         double minutely_Pay_Calc;       //分給
         double hourly_Pay_Calc;         //時給
+        double daily_Pay_Calc;          //日給
         long number_Of_Times_Calc = 0;  //回数
 
 
@@ -105,10 +107,12 @@ public class Main {
             seconds_Time_Calc = time * number_Of_Times_Calc ; //かかった時間(秒)を制作 一回転の時間 × 回数
             minutes_Time_Calc = seconds_Time_Calc / 60 ; //かかった時間(分)を制作 かかった秒数 ÷ 60
             hours_Time_Calc = minutes_Time_Calc / 60 ; //かかった時間(時間)を制作 かかった秒数 ÷ 60
+            days_Time_Calc = hours_Time_Calc / 24 ; //かかった時間(日)を制作 かかった秒数 ÷ 24
 
             secondly_Pay_Calc = (stock_Calc - bet_Calc) / seconds_Time_Calc; //秒給を計算
             minutely_Pay_Calc = secondly_Pay_Calc * 60; //分給を計算
             hourly_Pay_Calc = minutely_Pay_Calc * 60; //時給を計算
+            daily_Pay_Calc = hourly_Pay_Calc * 24; //日給を計算
 
             reduction_Rate = (stock_Calc + 0.0) / (bet_Calc + 0.0); //還元率を計算 受け取るお金 ÷ 使ったお金
             reduction_Rate *= 100.0; //％表記にするため100倍に
@@ -134,9 +138,11 @@ public class Main {
                 slot_Result_Writer.println("秒給は " + secondly_Pay_Calc + " 円");
                 slot_Result_Writer.println("分給は " + minutely_Pay_Calc + " 円");
                 slot_Result_Writer.println("時給は " + hourly_Pay_Calc + " 円");
-                slot_Result_Writer.println("掛かる秒数は " + seconds_Time_Calc + " 秒");
-                slot_Result_Writer.println("掛かる分数は " + minutes_Time_Calc + " 分");
-                slot_Result_Writer.println("掛かる時間は " + hours_Time_Calc + " 時間");
+                slot_Result_Writer.println("日給は " + daily_Pay_Calc + " 円");
+                slot_Result_Writer.println("当選までに掛かる秒数は " + seconds_Time_Calc + " 秒");
+                slot_Result_Writer.println("当選までに掛かる分数は " + minutes_Time_Calc + " 分");
+                slot_Result_Writer.println("当選までに掛かる時間は " + hours_Time_Calc + " 時間");
+                slot_Result_Writer.println("当選までに掛かる日数は " + days_Time_Calc + " 日");
                 slot_Result_Writer.println("");
 
                 slot_Result_Writer.close();
