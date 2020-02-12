@@ -1,4 +1,4 @@
-package slot_calc.tools.tool;
+package slot_calc.tool;
 
 public class safe_Scanner {
     public static long long_Scanner() {

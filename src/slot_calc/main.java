@@ -1,45 +1,52 @@
 package slot_calc;
 
-import slot_calc.tools.tool.safe_Scanner;
-import java.io.*;
+import slot_calc.tool.safe_Scanner;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class main {
-    public static void main (String [] args) {
+    public static void main (String [] args) throws IOException {
 
         /////////////
         // 変数作成 //
         /////////////
 
-        String slot_Name;      //スロットの名前
+        String slot_Name;               //スロットの名前
 
-        long default_Stock;    //初期ストック
-        long add_Stock;        //一回転で増えるストック
-        long bet;              //一回の金額
+        long default_Stock;             //初期ストック
+        long add_Stock;                 //一回転で増えるストック
+        long bet;                       //一回の金額
 
-        long numerator;        //分子
-        long denominator;      //分母
+        long numerator;                 //分子
+        long denominator;               //分母
 
-        double time = 0.0;     //一回転の時間
-        double reduction_Rate; //還元率  ％表記に使う
+        double time = 0.0;              //一回転の時間
+        double reduction_Rate;          //還元率  ％表記に使う
+
+        double chance;                  //％表示するための確率
+        double rotations_Number_To_Win; //当選までの平均回数
 
 
         //計算専用
-        long stock_Calc;                //add_Stockを足したストック
-        long bet_Calc;                  //一回の金額
+        double stock_Calc;         //add_Stockを足したストック
+        double bet_Calc;           //一回の金額
 
-        double seconds_Time_Calc;       //当選までの時間 (秒)
-        double minutes_Time_Calc;       //当選までの時間 (分)
-        double hours_Time_Calc;         //当選までの時間 (時間)
-        double days_Time_Calc;          //当選までの時間 (日)
+        double seconds_Time_Calc;  //当選までの時間 (秒)
+        double minutes_Time_Calc;  //当選までの時間 (分)
+        double hours_Time_Calc;    //当選までの時間 (時間)
+        double days_Time_Calc;     //当選までの時間 (日)
 
-        double secondly_Pay_Calc;       //秒給
-        double minutely_Pay_Calc;       //分給
-        double hourly_Pay_Calc;         //時給
-        double daily_Pay_Calc;          //日給
+        double secondly_Pay_Calc;  //秒給
+        double minutely_Pay_Calc;  //分給
+        double hourly_Pay_Calc;    //時給
+        double daily_Pay_Calc;     //日給
 
-        long numerator_calc = 0;        //計算専用の分子
-        long denominator_calc = 0;      //計算専用の分母
+        double numerator_calc = 0;   //計算専用の分子
+        double denominator_calc = 0; //計算専用の分母
 
 
         /////////////
@@ -68,22 +75,24 @@ public class main {
         System.out.println("一回転の時間を少数で入力してください (1秒 の場合は 1.0)");
         time = safe_Scanner.double_Scanner();
 
-        System.out.println("分母を入力してください (確率が 2/33 の場合 33)");
-        denominator = safe_Scanner.long_Scanner();
-
         System.out.println("分子を入力してください (確率が 2/33 の場合 2)");
+        System.out.println("?" + "/" + "?");
         numerator = safe_Scanner.long_Scanner();
+
+        System.out.println("分母を入力してください (確率が 2/33 の場合 33)");
+        System.out.println(numerator + "/" + "?");
+        denominator = safe_Scanner.long_Scanner();
 
 
         ///////////////////
         // txtファイル生成 //
         ///////////////////
 
+        FileWriter slot_Setting = new FileWriter(slot_Name + ".txt"); //スロット名のファイルを制作
+
+        PrintWriter slot_Setting_Writer = new PrintWriter(new BufferedWriter(slot_Setting)); //ファイル書き込みオブジェクトを生成
+
         try { //例外が起きたときに、エラー文を出す処理
-            FileWriter slot_Setting = new FileWriter(slot_Name + ".txt"); //スロット名のファイルを制作
-
-            PrintWriter slot_Setting_Writer = new PrintWriter(new BufferedWriter(slot_Setting)); //ファイル書き込みオブジェクトを生成
-
             slot_Setting_Writer.println("スロット名 " + slot_Name);
             slot_Setting_Writer.println("初期ストック " + default_Stock + " 円");
             slot_Setting_Writer.println("追加ストック " + add_Stock + " 円");
@@ -93,14 +102,19 @@ public class main {
             slot_Setting_Writer.println("");
             slot_Setting_Writer.println("確率をすぐ見つけたいときは、");
             slot_Setting_Writer.println("Control or CTRL + F か command + F で");
-            slot_Setting_Writer.println("1/60 のように分数を検索してみてください");
+            slot_Setting_Writer.println("100%以上 のように還元率を検索してみてください");
+            slot_Setting_Writer.println("もしくは 2/5 のように分数で検索してみてください");
             slot_Setting_Writer.println("");
             slot_Setting_Writer.println("");
             slot_Setting_Writer.println("");
 
-            slot_Setting_Writer.close(); //書き込み終了処理
-        } catch (IOException e) {
+        } catch (Exception e){
+            System.out.println("なんかよー分からんエラー吐いたってさ");
+            System.out.println("この下の文を見て勝手に解読しておくれ");
             System.out.println(e);
+
+        } finally { //catchされても確実に動く
+            slot_Setting_Writer.close();//書き込み終了処理
         }
 
 
@@ -119,16 +133,20 @@ public class main {
 
             for (long denominator_loop_calc = 0; denominator_loop_calc < denominator; denominator_loop_calc++){ //分母数ループ
 
-                //////////////////
-                // 分母さんの仕事場
-                //////////////////
+                //////////////////////////////
+                // 分母さんの仕事場 (計算ババア)
+                //////////////////////////////
 
                 ++denominator_calc; //分母を増やす (?/1 ?/2 ?/3...)
 
-                stock_Calc = default_Stock + add_Stock * numerator_calc; //受け取るお金を制作 初期ストック + 追加ストック × 回数
-                bet_Calc = bet * numerator_calc; //使ったお金を制作 一回転の金額 × 回数
+                chance = numerator_calc / denominator_calc * 100; //確率(％表記)を計算 分子 ÷ 分母 × 100
 
-                seconds_Time_Calc = time * numerator_calc ; //かかった時間(秒)を制作 一回転の時間 × 回数
+                rotations_Number_To_Win = 100 / chance; //当選までの平均回転数を制作 100 ÷ 確率(％表記)
+
+                stock_Calc = default_Stock + add_Stock * rotations_Number_To_Win; //受け取るお金を制作 初期ストック + 追加ストック × 当選までの回数
+                bet_Calc = bet * rotations_Number_To_Win; //使ったお金を制作 一回転の金額 × 当選までの回数
+
+                seconds_Time_Calc = time * rotations_Number_To_Win ; //かかった時間(秒)を制作 一回転の時間 × 回数
                 minutes_Time_Calc = seconds_Time_Calc / 60 ; //かかった時間(分)を制作 かかった秒数 ÷ 60
                 hours_Time_Calc = minutes_Time_Calc / 60 ; //かかった時間(時間)を制作 かかった秒数 ÷ 60
                 days_Time_Calc = hours_Time_Calc / 24 ; //かかった時間(日)を制作 かかった秒数 ÷ 24
@@ -138,7 +156,7 @@ public class main {
                 hourly_Pay_Calc = minutely_Pay_Calc * 60; //時給を計算
                 daily_Pay_Calc = hourly_Pay_Calc * 24; //日給を計算
 
-                reduction_Rate = (stock_Calc + 0.0) / (bet_Calc + 0.0); //還元率を計算 受け取るお金 ÷ 使ったお金
+                reduction_Rate = stock_Calc / bet_Calc; //還元率を計算 受け取るお金 ÷ 使ったお金
                 reduction_Rate *= 100.0; //％表記にするため100倍に
 
 
@@ -146,15 +164,15 @@ public class main {
                 // 保存職人の仕事場
                 ///////////////////
 
+                FileWriter slot_Result = new FileWriter(slot_Name + ".txt",true);
+
+                PrintWriter slot_Result_Writer = new PrintWriter(new BufferedWriter(slot_Result));
+
                 try {
-                    FileWriter slot_Result = new FileWriter(slot_Name + ".txt",true);
-
-                    PrintWriter slot_Result_Writer = new PrintWriter(new BufferedWriter(slot_Result));
-
-                    slot_Result_Writer.println("");
-                    slot_Result_Writer.println("");
-                    slot_Result_Writer.println("確率が " + " の場合");
+                    slot_Result_Writer.println("確率が " + (long)numerator_calc + "/" + (long)denominator_calc + " の場合");
                     slot_Result_Writer.println("還元率は " + reduction_Rate + " ％");
+                    slot_Result_Writer.println("確率は " + chance + " ％");
+                    slot_Result_Writer.println("当選までの平均回転数は " + rotations_Number_To_Win + " 回");
                     slot_Result_Writer.println("獲得金額は " + stock_Calc + " 円");
                     slot_Result_Writer.println("投資額は " + bet_Calc + " 円");
                     slot_Result_Writer.println("秒給は " + secondly_Pay_Calc + " 円");
@@ -166,12 +184,24 @@ public class main {
                     slot_Result_Writer.println("当選までに掛かる時間は " + hours_Time_Calc + " 時間");
                     slot_Result_Writer.println("当選までに掛かる日数は " + days_Time_Calc + " 日");
                     slot_Result_Writer.println("");
+                    slot_Result_Writer.println("");
+                    slot_Result_Writer.println("");
 
-                    slot_Result_Writer.close();
-                } catch (IOException e) {
+                } catch (Exception e) {
+                    System.out.println("なんかよー分からんエラー吐いたってさ");
+                    System.out.println("この下の文を見て勝手に解読しておくれ");
                     System.out.println(e);
+
+                } finally { //catchされても確実に動く
+                    slot_Result_Writer.close();
                 }
             }
+
+            //////////////////////////////
+            // たまに働くリセット職人の仕事場
+            //////////////////////////////
+
+            denominator_calc = 0; //分母分ループしたら分母をリセットする
         }
         System.out.println("結果を全てファイルに保存しました");
         System.out.println("プログラムを終了します...");
