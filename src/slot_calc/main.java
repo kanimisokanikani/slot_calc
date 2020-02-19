@@ -1,6 +1,7 @@
 package slot_calc;
 
 import slot_calc.tool.safe_Scanner;
+import slot_calc.tool.file_Writer;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -32,18 +33,18 @@ public class main {
 
 
         //計算専用
-        double stock_Calc;         //add_Stockを足したストック
-        double bet_Calc;           //一回の金額
+        double stock_Calc;           //add_Stockを足したストック
+        double bet_Calc;             //一回の金額
 
-        double seconds_Time_Calc;  //当選までの時間 (秒)
-        double minutes_Time_Calc;  //当選までの時間 (分)
-        double hours_Time_Calc;    //当選までの時間 (時間)
-        double days_Time_Calc;     //当選までの時間 (日)
+        double seconds_Time_Calc;    //当選までの時間 (秒)
+        double minutes_Time_Calc;    //当選までの時間 (分)
+        double hours_Time_Calc;      //当選までの時間 (時間)
+        double days_Time_Calc;       //当選までの時間 (日)
 
-        double secondly_Pay_Calc;  //秒給
-        double minutely_Pay_Calc;  //分給
-        double hourly_Pay_Calc;    //時給
-        double daily_Pay_Calc;     //日給
+        double secondly_Pay_Calc;    //秒給
+        double minutely_Pay_Calc;    //分給
+        double hourly_Pay_Calc;      //時給
+        double daily_Pay_Calc;       //日給
 
         double numerator_calc = 0;   //計算専用の分子
         double denominator_calc = 0; //計算専用の分母
@@ -88,34 +89,8 @@ public class main {
         // txtファイル生成 //
         ///////////////////
 
-        FileWriter slot_Setting = new FileWriter(slot_Name + ".txt"); //スロット名のファイルを制作
-
-        PrintWriter slot_Setting_Writer = new PrintWriter(new BufferedWriter(slot_Setting)); //ファイル書き込みオブジェクトを生成
-
-        try { //例外が起きたときに、エラー文を出す処理
-            slot_Setting_Writer.println("スロット名 " + slot_Name);
-            slot_Setting_Writer.println("初期ストック " + default_Stock + " 円");
-            slot_Setting_Writer.println("追加ストック " + add_Stock + " 円");
-            slot_Setting_Writer.println("一回転の金額 " + bet + " 円");
-            slot_Setting_Writer.println("一回転の時間 " + time + " 秒");
-            slot_Setting_Writer.println("確率 " + numerator + "/" + denominator);
-            slot_Setting_Writer.println("");
-            slot_Setting_Writer.println("確率をすぐ見つけたいときは、");
-            slot_Setting_Writer.println("Control or CTRL + F か command + F で");
-            slot_Setting_Writer.println("100%以上 のように還元率を検索してみてください");
-            slot_Setting_Writer.println("もしくは 2/5 のように分数で検索してみてください");
-            slot_Setting_Writer.println("");
-            slot_Setting_Writer.println("");
-            slot_Setting_Writer.println("");
-
-        } catch (Exception e){
-            System.out.println("なんかよー分からんエラー吐いたってさ");
-            System.out.println("この下の文を見て勝手に解読しておくれ");
-            System.out.println(e);
-
-        } finally { //catchされても確実に動く
-            slot_Setting_Writer.close();//書き込み終了処理
-        }
+        file_Writer.slot_Setting_Writer_method (slot_Name, default_Stock, add_Stock, bet, time, numerator, denominator);
+        //ファイル名.txtの生成をメソッドに外注
 
 
         //////////
